@@ -22,7 +22,7 @@ variable "this_disable_api_termination" {
 
 variable "this_instance_type" {
      type = string
-     default = "t4g.nano"
+     default = "t2.micro"
 }
 
 
