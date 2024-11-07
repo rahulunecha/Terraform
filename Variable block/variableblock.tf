@@ -23,7 +23,7 @@ variable "this_disable_api_termination" {
 
 variable "this_instance_type" {
      type = string
-     default = "t2.micro"
+     default = "t3.nano"
 }
 
 
@@ -40,6 +40,6 @@ variable "this_count" {
 
 variable "this_list" {
     type = list 
-    default = ["t4g.nano" , "2" , "false"]
+    default = ["t3.nano" , "2" , "false"]
      
 }
