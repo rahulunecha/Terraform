@@ -1,4 +1,4 @@
-resource "aws_db_instance" "this_rds" {
+resource "aws_db_instance" "oracle_rds" {
 
   allocated_storage       = 20                 # Storage in GB
   engine                  = "oracle-se2"       # Select Oracle Standard Edition 2
