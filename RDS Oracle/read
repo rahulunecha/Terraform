@@ -1,0 +1,23 @@
+create instance or do on aws cli
+ configure aws cli 
+ install terraform 
+ git clone
+ cd Terraform/Oracle
+ terraform init
+ terraform apply
+
+
+
+.. it error in main file then edit files 
+vim ~/.aws/credentials
+
+[kartik]
+aws_access_key_id = YOUR_ACCESS_KEY
+aws_secret_access_key = YOUR_SECRET_KEY
+
+vim ~/.aws/config
+
+[profile kartik]
+region = us-east-1  # Set your default region here
+
+..

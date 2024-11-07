@@ -1,23 +1,32 @@
-resource "aws_db_instance" "oracle_rds" {
+provider "aws" {
+  profile = var.aws_profile
+  region  = var.aws_region
+}
 
-  allocated_storage       = 20                 # Storage in GB
-  engine                  = "oracle-se2"       # Select Oracle Standard Edition 2
-  engine_version          = "19.0.0.0.ru-2022-07.rur-2022-07.r1" # Use a supported version
-  instance_class          = "db.m6i.xlarge"     # Choose an appropriate instance class
-  db_name                 = "mydatabase"       # Database name
-  username                = "admin"            # Master username
-  password                = "password123"  # Master password (keep this secure)
-  publicly_accessible     = true               # Set to true if you want public access
-  skip_final_snapshot     = true               # Skip final snapshot on deletion
-  
-  license_model           = "license-included"
-  # Optional: Additional configurations
-  vpc_security_group_ids  = ["sg-0534de5a41b183c8f"] # Security group for access control
-  storage_type            = "gp2"                  # General purpose SSD
-  backup_retention_period = 7                      # Retain backups for 7 days
+# Oracle RDS Instance
+resource "aws_db_instance" "oracle_db" {
+  identifier              = var.db_identifier
+  allocated_storage       = var.db_allocated_storage
+  engine                  = "oracle-se2"       # Or "oracle-se1", "oracle-ee" depending on your needs
+  instance_class          = var.db_instance_class
+  db_name                    = var.db_name
+  username                = var.db_username
+  password                = var.db_password
+  parameter_group_name    = var.db_parameter_group
+  license_model           = "license-included"  # or "bring-your-own-license"
+  skip_final_snapshot     = true
+  publicly_accessible     = var.publicly_accessible
+  backup_retention_period = var.backup_retention_period
 
-  # Tags (optional)
-  tags = {
-    Name = "MyOracleRDSInstance"
-  }
+  # Optional: Multi-AZ setup
+  multi_az = var.multi_az
+}
+
+# Output database endpoint
+output "db_endpoint" {
+  value = aws_db_instance.oracle_db.endpoint
+}
+
+output "db_arn" {
+  value = aws_db_instance.oracle_db.arn
 }
