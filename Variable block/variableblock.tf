@@ -1,4 +1,8 @@
 
+variable "this_image_id" {
+     type = string
+     default = "ami-0c8cbc55eb5f3c5cc"
+}
 
 # this means unique name
 # from main.tf/resource.tf  we have to take resouces of ec2  (variables)
