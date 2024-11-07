@@ -10,6 +10,7 @@ resource "aws_db_instance" "oracle_rds" {
   publicly_accessible     = true               # Set to true if you want public access
   skip_final_snapshot     = true               # Skip final snapshot on deletion
   
+  license_model           = "license-included"
   # Optional: Additional configurations
   vpc_security_group_ids  = ["sg-0534de5a41b183c8f"] # Security group for access control
   storage_type            = "gp2"                  # General purpose SSD
