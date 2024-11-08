@@ -1,0 +1,10 @@
+aws_region          = "eu-north-1"
+vpc_id              = "vpc-0123456789abcdef0"
+peer_vpc_id         = "vpc-0abcdef1234567890"
+peer_owner_id       = "123456789012" # Optional if same account
+auto_accept         = true
+peering_name        = "my-vpc-peering-connection"
+route_table_id_vpc1 = "rtb-0123456789abcdef0"
+route_table_id_vpc2 = "rtb-0abcdef1234567890"
+vpc_cidr            = "10.0.0.0/16"
+peer_vpc_cidr       = "10.1.0.0/16"
