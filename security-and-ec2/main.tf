@@ -38,7 +38,7 @@ resource "aws_security_group" "example_sg" {
 
 # Create an EC2 instance and attach the security group
 resource "aws_instance" "example_instance" {
-  ami           = "ami-0c55b159cbfafe1f0"   # Replace with an appropriate AMI ID for your region
+  ami           = "ami-08eb150f611ca277f"   # Replace with an appropriate AMI ID for your region
   instance_type = "t3.micro"
 
   # Attach the security group
