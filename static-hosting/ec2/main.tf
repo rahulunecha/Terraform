@@ -56,6 +56,6 @@ resource "aws_security_group" "web_server" {
   }
  
   tags = {
-    Name = "terra"
+    Name = "terraform"
   }
 }
