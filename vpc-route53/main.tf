@@ -49,8 +49,8 @@ resource "aws_instance" "web_server" {
               #!/bin/bash
               sudo yum update -y
               sudo yum install -y nginx
-              curl -O https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip
-              unzip oxer.zip
+              curl -O https://www.free-css.com/assets/files/free-css-templates/download/page295/handtime.zip
+              unzip handtime.zip
               sudo rm -rf /usr/share/nginx/html/*
               sudo mv oxer-html/* /usr/share/nginx/html/
               sudo systemctl start nginx
