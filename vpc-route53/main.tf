@@ -1,12 +1,12 @@
 # AWS provider configuration
 provider "aws" {
-  region = "eu-north-1"  # Replace with your preferred AWS region
+  region = "us-west-1"  # Replace with your preferred AWS region
 }
 
 # Variables (replace these with your values)
-variable "instance_type" { default = "t3.micro" }
-variable "ami_id" { default = "ami-08eb150f611ca277f" }  # (Linux)Replace with an appropriate AMI ID
-variable "key_name" { default = "kartik" }  # Replace with your EC2 key pair name
+variable "instance_type" { default = "t2.micro" }
+variable "ami_id" { default = "ami-063d43db0594b521b" }  # (Linux)Replace with an appropriate AMI ID
+variable "key_name" { default = "new1" }  # Replace with your EC2 key pair name
 variable "domain_name" { default = "rucloud.site" }  # Replace with your domain name (e.g., "mywebsite.com")
 
 # Security group allowing HTTP and SSH access
