@@ -4,11 +4,11 @@ variable this_aws_region {
     description = "This variable is for aws region"
 }
 
-/* variable "this_ami" {
-    type = string
-    default = "ami-0dee22c13ea7a9a67"
-    description = "This variable is for aws ami"
-} */
+#variable "this_ami" {
+#    type = string
+#    default = "ami-0dee22c13ea7a9a67"
+#   description = "This variable is for aws ami"
+#} 
 
 variable "this_instance_type" {
     type = list
