@@ -1,7 +1,6 @@
 variable "vpc_cidr_block" {
   description = "CIDR block for the VPC"
   type        = string
-  default     = "10.0.0.0/16" # Modify as needed
 }
 
 variable "enable_dns_support" {
@@ -19,8 +18,21 @@ variable "enable_dns_hostnames" {
 variable "vpc_tags" {
   description = "Tags for the VPC"
   type        = map(string)
-  default     = {
-    Name        = "MyVPC"
-    Environment = "Dev"
-  }
+  default     = {}
+}
+
+variable "subnet_cidr_block" {
+  description = "CIDR block for the Subnet"
+  type        = string
+}
+
+variable "availability_zone" {
+  description = "Availability zone for the Subnet"
+  type        = string
+}
+
+variable "subnet_tags" {
+  description = "Tags for the Subnet"
+  type        = map(string)
+  default     = {}
 }
