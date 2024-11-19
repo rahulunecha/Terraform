@@ -1,11 +1,35 @@
-variable "ami_value" {
-    description = "value for the ami"
+variable "this_image_id" {
+  type        = string
 }
 
-variable "instance_type_value" {
-    description = "value for instance_type"
+
+variable "this_count" {
+    type = number 
+    default = 2
+     
+}
+variable "this_vpc_security_group_ids" {
+    type = string 
+    default = "sg-0505874879e7ce6cd"
+     
 }
 
-variable "subnet_id_value" {
-    description = "value for the subnet_id"
+variable "this_list" {
+    type = string
+     
+}
+
+variable "this_disable_api_stop" {
+     type = bool
+
+}
+
+variable "this_disable_api_termination" {
+  type = bool
+
+}
+
+variable "this_aws_instance_subnet" {
+   type = string
+
 }
