@@ -1,6 +1,6 @@
 
 module "ec2" {
-    source = "/home/Module/Resources/EC2"
+    source = "/home/cloudshell-user/Terraform/Module/resources/ec2"
     this_image_id = "ami-08eb150f611ca277f"
     this_list = "t3.micro"
     this_disable_api_stop = false
@@ -12,7 +12,7 @@ module "ec2" {
 }
 
 module "vpc" {
-     source = "/home/Module/Resources/VPC"
+     source = "/home/cloudshell-user/Terraform/Module/resources/vpc"
      this_vpc_cidr_block = "12.11.0.0/16"
      this_vpc_tags = "this_vpc"
      this_subnet_pub_cidr_block = "12.11.0.0/17"
