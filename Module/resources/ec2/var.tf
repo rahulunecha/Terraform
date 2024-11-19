@@ -10,7 +10,7 @@ variable "this_count" {
 }
 variable "this_vpc_security_group_ids" {
     type = string 
-    default = "sg-0505874879e7ce6cd"
+    default = "sg-0178be7f7b3ea1d2c"
      
 }
 
