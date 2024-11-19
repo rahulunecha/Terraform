@@ -1,0 +1,5 @@
+variable "variable_name" {
+  type        = <type>     # Optional, can be "string", "list", "map", etc.
+  description = <string>   # Optional, description of the variable.
+  default     = <value>    # Optional, default value for the variable.
+}

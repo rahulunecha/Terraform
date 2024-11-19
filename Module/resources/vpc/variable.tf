@@ -1,21 +1,23 @@
 variable "this_vpc_cidr_block" {
-    type = string
+  description = "CIDR block for the VPC"
 }
+
 variable "this_vpc_tags" {
-     type = string
+  description = "Tags for the VPC"
 }
+
 variable "this_subnet_pub_cidr_block" {
-     type = string
+  description = "CIDR block for the public subnet"
 }
 
 variable "this_subnet_pub_map_ip" {
-    type = bool
+  description = "Whether to map public IPs on launch"
 }
+
 variable "this_subnet_pub_tags" {
-    type = string
+  description = "Tags for the public subnet"
 }
 
 variable "this_vpc_az" {
-  type = string
-
+  description = "Availability Zone for the subnet"
 }

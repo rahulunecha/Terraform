@@ -1,18 +1,19 @@
+resource "aws_vpc" "main" {
+  cidr_block = var.this_vpc_cidr_block
 
-resource "aws_vpc" "this_vpc" {
-    cidr_block = var.this_vpc_cidr_block //"12.11.0.0/16"
-    tags =  {
-        Name = var.this_vpc_tags //"this_vpc"
-    }
+  tags = {
+    Name = var.this_vpc_tags
+  }
 }
 
-resource "aws_subnet" "this_subnet_pub" {
-  vpc_id     = aws_vpc.this_vpc.id  #referedresourceblock'sProvider_referedresourceblock'sresourcetype.referedresourceblocksuniqueresourceblockname.attributeofresource
-  availability_zone =  var.this_vpc_az  #"ap-south-1a"
-  cidr_block = var.this_subnet_pub_cidr_block      //"12.11.0.0/17"  
-  map_public_ip_on_launch = var.this_subnet_pub_map_ip //true
+resource "aws_subnet" "main" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.this_subnet_pub_cidr_block
+  map_public_ip_on_launch = var.this_subnet_pub_map_ip
+  availability_zone       = var.this_vpc_az
+
   tags = {
-    Name = var.this_subnet_pub_tags //"pub_subnet"
+    Name = var.this_subnet_pub_tags
   }
 }
 
