@@ -24,17 +24,4 @@ module "vpc" {
 
 }
 
-output "instance_public_ip" {
-  value = aws_instance.this_ubuntu.public_ip
 
-
-}
-output "vpc_id" {
-  description = "The ID of the VPC"
-  value       = aws_vpc.this_vpc.vpc_id
-}
-
-output "subnet_id" {
-  description = "The ID of the Subnet"
-  value       = aws_subnet.this_subnet_pub.subnet_id
-}
