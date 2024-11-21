@@ -17,7 +17,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
 #LockID
 terraform {
     backend "s3" {
-        bucket = "new-terraform-state-bucket"
+        bucket = "bucket-tfstate1"
         key = "terraform.tfstate"
         dynamodb_table = "terraform_locks"
         region = "eu-north-1"
