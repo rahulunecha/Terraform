@@ -1,9 +1,9 @@
-resource "aws_s3_bucket" "terraform_state_bucket" {
-  bucket        = "new-terraform-state-bucket" # Replace with a unique bucket name
-  acl           = "private"
+resource "aws_s3_bucket" "state_bucket" {
+  bucket = "new-terraform-state-bucket"
+  acl    = "private"
 
   tags = {
-    Name        = "TerraformStateBucket"
+    Name        = "TerraformState"
     Environment = "Dev"
   }
 }
