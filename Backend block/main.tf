@@ -1,9 +1,3 @@
-provider "aws" {
-      region = "eu-north-1"
-      profile = "configs"
-      shared_credentials_files = ["/home/rahul/.aws/credentials"]
-    
-}
 resource "aws_s3_bucket" "terraform_state_bucket" {
   bucket        = "new-terraform-state-bucket" # Replace with a unique bucket name
   acl           = "private"
@@ -38,16 +32,16 @@ terraform {
         dynamodb_table = "terraform_locks"
         region = "eu-north-1"
         profile = "configs"
-        shared_credentials_files = ["/home/anup/.aws/credentials"]
+        shared_credentials_files = ["/home/rahul/.aws/credentials"]
     }
 }
 
 
 resource "aws_instance" "ths_instance" {
-  ami = "ami-0a38c1c38a15fed74"
-  //key_name = "anupdel"
-  instance_type = "t2.micro"
-  //security_groups = ["sg-02582bf615cdb71bb"]
+  ami = "ami-08eb150f611ca277f"
+  //key_name = "newrahul"
+  instance_type = "t3.micro"
+  //security_groups = ["sg-0178be7f7b3ea1d2c"]
   count = 1
   
   
