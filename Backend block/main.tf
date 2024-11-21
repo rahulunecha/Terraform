@@ -1,13 +1,3 @@
-resource "aws_s3_bucket" "state_bucket" {
-  bucket = "new-terraform-state-bucket"
-  acl    = "private"
-
-  tags = {
-    Name        = "TerraformState"
-    Environment = "Dev"
-  }
-}
-
 resource "aws_dynamodb_table" "terraform_locks" {
   name         = "terraform-locks"
   billing_mode = "PAY_PER_REQUEST"
