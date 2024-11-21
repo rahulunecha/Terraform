@@ -1,25 +1,11 @@
-resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "terraform-locks"
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "LockID"
 
-  attribute {
-    name = "LockID"
-    type = "S"
-  }
-
-  tags = {
-    Name        = "TerraformLocks"
-    Environment = "Dev"
-  }
-}
 
 #LockID
 terraform {
     backend "s3" {
         bucket = "bucket-tfstate1"
         key = "terraform.tfstate"
-        dynamodb_table = "terraform_locks"
+        dynamodb_table = "teble-tfdb"
         region = "eu-north-1"
         profile = "configs"
         shared_credentials_files = ["/home/rahul/.aws/credentials"]
