@@ -15,6 +15,6 @@ module "ec2" {
   this_disable_api_stop        = false
   this_disable_api_termination = false
   this_aws_instance_subnet     = module.vpc.subnet_id
-#  this_aws_vpc_id = module.aws_vpc.aws_vpc_id #here aws_vpc name is vpc
-  #this_aws_instance_subnet = module.aws_vpc.aws_subnet_main
+  /*this_aws_vpc_id = module.aws_vpc.aws_vpc_id #here aws_vpc name is vpc
+  */this_aws_instance_subnet = module.aws_vpc.aws_subnet_main
 }
