@@ -1,33 +1,35 @@
+
+
+
 resource "aws_instance" "this_aws_instance" {
-    for_each = toset(var.aws_ami)
+    for_each = toset(var.imageid)
     ami = each.value
-    vpc_security_group_ids = ["sg-0178be7f7b3ea1d2c"]
-    #key_name = "delete_ore"
+    #vpc_security_group_ids = ["sg-032e1a4a1685a03be"]
+    #key_name = "rahul"
     instance_type = "t3.micro"
+    
+}   
+
+resource "aws_iam_user" "main_user"{
+    for_each = toset(var.main_user_name)
+    name = each.value
 }
 
-variable "aws_ami" {
+variable "main_user_name" {
     type = list(string)
-    default = ["ami-0658158d7ba8fd573","ami-08eb150f611ca277f","ami-02a0945ba27a488b7"]
-}  
-
-output "name" {
-   value = [ for instance in var.aws_ami:
-    aws_instance.this_aws_instance[instance].public_ip
-   ]
+   
+    default = ["ubuntu","awslinux","windows"]
 }
 
+variable "imageid" {
+    type = list(string)
+    default = ["ami-02a0945ba27a488b7","ami-08eb150f611ca277f","ami-06f2889142bc3d7b3"]
 
-resource "aws_iam_user" "name" {
-    name = "sample.${count.index}"
-    count = 3
 }
 
-resource "aws_iam_user" "name2" {
-    count = length(var.names)
-    name = var.names[count.index]
-}
-variable "names" {
-    default = ["name1","name2", "name3"]
-  
+output "aws_ec2" {
+  value = [
+    for instance in var.imageid:
+        aws_instance.this_aws_instance[instance].public_ip
+  ]
 }

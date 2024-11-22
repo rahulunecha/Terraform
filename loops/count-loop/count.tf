@@ -1,19 +1,24 @@
 provider "aws" {
-    region =  "eu-north-1"
-    profile = "configs"
-}
- 
-
-resource "aws_iam_user" "main_user" {
-    name = "linux.${count.index}"
-    count = 3          
-}
-resource "aws_iam_user" "main_user_1" {
-    count = length(var.user_name)
-    name =  var.user_name[count.index]
+   profile = "configs"
+    default_tags {
+                tags = {
+                    name = "aws"
+                }
+    }
 }
 
-variable "user_name" {
-      default = ["ram", "laxman", "sita"]
-}
 
+resource "aws_iam_user" "this_aws_iam_user" { 
+    count = length(var.users_list)  #3
+    name = var.users_list[count.index]
+}  
+resource "aws_iam_user" "this_aws_iam_user_2" { 
+    name = "neo.${count.index}"   #neo
+    count = 3 
+}  
+
+
+variable "users_list" {
+    default = ["ram" , "laxman" , "sita"]
+}                #0         #1       #2
+  
