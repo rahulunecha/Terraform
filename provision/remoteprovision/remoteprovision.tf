@@ -21,5 +21,6 @@ resource "aws_instance" "this_aws_instance" {
 
   tags = {
     Name = "MyInstance"
-  }
+  }
+
 }
